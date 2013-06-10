@@ -80,6 +80,13 @@ class Graph(dict):
         except:
             return None
 
+    def remove_edge(self, e):
+        """Removes all references to an edge from the graph"""
+        v, w = e
+        self.pop(v, None)
+        self.pop(w, None)
+
+
 def main(script, *args):
     v = Vertex('v')
     #print v
@@ -89,13 +96,16 @@ def main(script, *args):
     e = Edge(v, w)
     e2 = Edge(v, x)
     #print e
-    g = Graph([v,w], [e])
+    #print e
+    g = Graph([v,w,v,x], [e,e2])
+
+    #print 'The whole graph'
     #print g
-    print g.get_edge(v, w)
-    print g.get_edge(w, x)
-
-
-
+    print 'Removing edge'
+    g.remove_edge(e)
+    print g.get_edge(v,w)
+    #print 'The whole graph again'
+    #print g
 
 if __name__ == '__main__':
     import sys

@@ -20,7 +20,15 @@ class GraphTests(unittest.TestCase):
 		x = Graph.Vertex('x')
 		e = Graph.Edge(v, w)
 		g = Graph.Graph([v,w], [e])
-		self.assertIsNone(g.get_edge(v, x))	
+		self.assertIsNone(g.get_edge(v, x))
+
+	def testRemoveEdge(self):
+		v = Graph.Vertex('v')
+		w = Graph.Vertex('w')
+		e = Graph.Edge(v, w)
+		g = Graph.Graph([v,w], [e])
+		g.remove_edge(e)
+		self.assertIsNone(g.get_edge(v,w))
 
 if __name__ == '__main__':
 	unittest.main(exit=False)
