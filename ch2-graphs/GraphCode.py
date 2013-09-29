@@ -44,18 +44,18 @@ class Graph(dict):
     """A Graph is a dictionary of dictionaries.  The outer
     dictionary maps from a vertex to an inner dictionary.
     The inner dictionary maps from other vertices to edges.
-    
+
     For vertices a and b, graph[a][b] maps
     to the edge that connects a->b, if it exists."""
 
     def __init__(self, vs=[], es=[]):
-        """Creates a new graph.  
+        """Creates a new graph.
         vs: list of vertices;
         es: list of edges.
         """
         for v in vs:
             self.add_vertex(v)
-          
+
         for e in es:
             self.add_edge(e)
 
